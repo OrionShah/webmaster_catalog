@@ -3,8 +3,8 @@
 </head>
 <body>
 <div class="container">
-    <div class="navbar">
-            <ul>
+    <div class="navbar clear">
+            <ul class="clear">
                 <li><a href="/" class="nav_item">Главная</a></li>
                 <li><a href="/list" class="nav_item">Каталог</a></li>
                 <li><a href="about" class="nav_item">О нас</a></li>
@@ -17,25 +17,53 @@
 </body>
 
 <template name="list">
-<a href="/">Back</a>
-    <div class="list">
-    List:<br>
+    <div class="filters clear">
+        {{> filters}}
+    </div>
+    <div class="list clear">
         {{#each list}}
             {{> base}}
         {{/each}}
     </div>
 </template>
 
+<template name="filters">
+    <ul>
+        {{#each filters}}
+            <li class="filter active_{{active}}">{{text}}</li>
+        {{/each}}
+    </ul>
+</template>
+
 <template name="base">
 <div class="base">
     <div class="name">{{name}}</div>
+    <img class="img" src="">
     <div class="adout">{{about}}</div>
-    <a href="/base/{{id}}">Подробнее</a>
+    <a class="link" href="/base/{{id}}">Подробнее</a>
 </div>
 </template>
 
 <template name="index">
-<div class="index">
+<div class="index clear">
     Добро пожаловать на сайт-каталог загородного отдыха Волгограда! На нашем сайте Вы сможете подобрать оптимальный вариант отдыха для себя и своей семьи!
 </div>
+</template>
+<template name="new">
+<form id="new" class="new_base">
+
+<span class="text clear">Имя:</span><input type="text" name="base.name"><br>
+<span class="text clear">Картинка: </span><input type="file" name="base.img"><br>
+<span class="text clear">Краткое описание:</span><input type="text" name="base.about"><br>
+<span class="text clear">Подробное описание:</span><input type="text" name="base.full_text"><br>
+<span class="text clear">Расстояние до поселка:</span><input type="number" value="0" name="base.city_dist" min="0"><br>
+<span class="text clear">Расстояние до водоема:</span><input type="number" name="base.water_dist" value="0" min="0"><br>
+<span class="text clear">Объем водоема:</span><input type="number" min="0" value="100" name="base.water"><br>
+<span class="text clear">Класс водоема:</span><input type="number" min="1" max="5" value="1" name="base.water_class"><br>
+<span class="text clear">Цена:</span><input type="number" min="0" value="0" name="base.price"><br>
+<span class="text clear">Питание:</span><input type="checkbox" name="base.food"><br>
+<span class="text clear">В помещении:</span><input type="checkbox" name="base.indoor"><br>
+<span class="text clear">Спорт:</span><input type="checkbox" name="base.sport"><br>
+<button type="submit">Добавить</button>
+</form>
 </template>
