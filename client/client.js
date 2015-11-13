@@ -1,23 +1,37 @@
 if (Meteor.isClient) {
-  // counter starts at 0
-  Session.setDefault('counter', 0);
+    Bases = new Meteor.Collection('bases');
+    Meteor.subscribe("bases");
+    
+    Router.configure({
+        autoRender: false,
+    });
 
-  Template.hello.helpers({
-    counter: function () {
-      return Session.get('counter');
-    }
-  });
-
-  Template.hello.events({
-    'click button': function () {
-      // increment the counter when button is clicked
-      Session.set('counter', Session.get('counter') + 1);
-    }
-  });
+    Template.list.helpers({
+        list: function() {
+            var all = Bases.find().fetch();
+            return all;
+        }
+        // bases: [
+        //     {about: "adsfadsf", name: "base1", id: 1},
+        //     {about: "fsdfcv", name: "base2", id: 2},
+        //     {about: "csvdfgrdg", name: "base3", id: 3},
+        //     {about: "vcxvbfdtr", name: "base4", id: 4},
+        //     {about: "vdsgerty5y gr", name: "base5", id: 5},
+        // ]
+    });
+    Router.route('/base/:_id', function() {
+        var item = Bases.findOne({id: this.params._id});
+        this.render('base', {data: item});
+        
+    });
+    Router.route('/', function() {
+        this.render('index');
+    });
+    Router.route('list', function() {
+        this.render('list', {data: Bases});
+    });
+    Router.route('/about', function() {
+        this.render('about');
+    });
 }
 
-if (Meteor.isServer) {
-  Meteor.startup(function () {
-    // code to run on server at startup
-  });
-}

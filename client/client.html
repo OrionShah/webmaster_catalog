@@ -1,14 +1,41 @@
 <head>
-  <title>catalog</title>
+  <title>Загородный отдых в Волгограде</title>
 </head>
-
 <body>
-  <h1>Welcome to Meteor!</h1>
+<div class="container">
+    <div class="navbar">
+            <ul>
+                <li><a href="/" class="nav_item">Главная</a></li>
+                <li><a href="/list" class="nav_item">Каталог</a></li>
+                <li><a href="about" class="nav_item">О нас</a></li>
+            </ul>
+    </div>
 
-  {{> hello}}
+    {{> Router}}
+</div>
 </body>
 
-<template name="hello">
-  <button>Click Me</button>
-  <p>You've pressed the button {{counter}} times.</p>
+<template name="list">
+<a href="/">Back</a>
+    <div class="list">
+    List:<br>
+        {{#each list}}
+            {{> base}}
+        {{/each}}
+    </div>
+</template>
+
+<template name="base">
+<div class="base">
+    <div class="name">{{name}}</div>
+    <div class="adout">{{about}}</div>
+    <a href="/base/{{id}}">Подробнее</a>
+</div>
+</template>
+
+<template name="index">
+<div class="index">
+    Index page
+    <a href="/list">List</a>
+</div>
 </template>
