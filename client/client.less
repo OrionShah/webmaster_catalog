@@ -4,13 +4,28 @@
 @light_green: #71cc49;
 @very_light_green: #99d578;
 
+body {
+    background-color: @very_dark_green;
+}
+.container {
+    width: 1200px;
+    margin: 0 auto;
+}
+.footer {
+    color: white;
+    background-color: @green;
+    font-size: 11pt;
+    text-align: center;
+    padding: 7px;
+}
+
 .navbar {
     margin: 0 0 15px 0;
+
     ul {
         list-style-type: none;
         padding: 0;
         margin: 0;
-        width: 100%;
         display: block;
         li {
             display: inline;
@@ -37,12 +52,16 @@
         text-decoration: none;
     }
     .nav_item:hover {
-        background-color: @very_dark_green !important;
+        background-color: @light_green !important;
     }
 
 }
-.container {
-    width: 1200px;
-    // border: 1px solid black;
-    margin: 0 auto;
+
+.index {
+    background-color: @green;
+    margin: 10px 0;
+    text-align: justify;
+    font-size: 16pt;
+    color: white;
+    padding: 15px;
 }
