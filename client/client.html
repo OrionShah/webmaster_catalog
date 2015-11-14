@@ -7,7 +7,6 @@
             <ul class="clear">
                 <li><a href="/" class="nav_item">Главная</a></li>
                 <li><a href="/list" class="nav_item">Каталог</a></li>
-                <li><a href="about" class="nav_item">О нас</a></li>
             </ul>
     </div>
 
@@ -18,7 +17,11 @@
 
 <template name="list">
     <div class="filters clear">
-        {{> filters}}
+    <ul>
+        {{#each filters}}
+            <li class="filter"><input name="{{name}}" type="checkbox" {{checkedIf active}} /> {{text}}</li>
+        {{/each}}
+    </ul>
     </div>
     <div class="list clear">
         {{#each list}}
@@ -28,17 +31,13 @@
 </template>
 
 <template name="filters">
-    <ul>
-        {{#each filters}}
-            <li class="filter active_{{active}}">{{text}}</li>
-        {{/each}}
-    </ul>
+    
 </template>
 
 <template name="base">
 <div class="base">
     <div class="name">{{name}}</div>
-    <img class="img" src="">
+    <img class="img" src="{{img}}">
     <div class="adout">{{about}}</div>
     <a class="link" href="/base/{{id}}">Подробнее</a>
 </div>
@@ -53,7 +52,7 @@
 <form id="new" class="new_base">
 
 <span class="text clear">Имя:</span><input type="text" name="base.name"><br>
-<span class="text clear">Картинка: </span><input type="file" name="base.img"><br>
+<span class="text clear">Картинка: </span><input type="text" name="base.img"><br>
 <span class="text clear">Краткое описание:</span><input type="text" name="base.about"><br>
 <span class="text clear">Подробное описание:</span><input type="text" name="base.full_text"><br>
 <span class="text clear">Расстояние до поселка:</span><input type="number" value="0" name="base.city_dist" min="0"><br>
@@ -64,6 +63,13 @@
 <span class="text clear">Питание:</span><input type="checkbox" name="base.food"><br>
 <span class="text clear">В помещении:</span><input type="checkbox" name="base.indoor"><br>
 <span class="text clear">Спорт:</span><input type="checkbox" name="base.sport"><br>
+<span class="text clear">Круглый год:</span><input type="checkbox" name="base.year"><br>
+<span class="text clear">Зима:</span><input type="checkbox" name="base.winter"><br>
+<span class="text clear">Весна:</span><input type="checkbox" name="base.spring"><br>
+<span class="text clear">Лето:</span><input type="checkbox" name="base.summer"><br>
+<span class="text clear">Осень:</span><input type="checkbox" name="base.autumn"><br>
+<span class="text clear">Стоянка:</span><input type="checkbox" name="base.cars"><br>
+<span class="text clear">Ночевка:</span><input type="checkbox" name="base.night"><br>
 <button type="submit">Добавить</button>
 </form>
 </template>

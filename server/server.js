@@ -4,6 +4,6 @@ if (Meteor.isServer) {
         
     });
     Meteor.publish("bases", function () {
-        return Bases.find();
+    	return Bases.find();
     });
 }
