@@ -25,7 +25,7 @@ if (Meteor.isClient) {
         night: Session.get('night')
     };
     Bases = new Meteor.Collection('bases');
-    Meteor.subscribe("bases", Filters);
+    Meteor.subscribe("bases");
     
     Router.configure({
         autoRender: true,
@@ -33,6 +33,7 @@ if (Meteor.isClient) {
 
     Template.list.helpers({
         list: function() {
+            console.log(Bases.find().fetch());
             return Bases.find().fetch();
         },
         filters: function() {
@@ -66,8 +67,9 @@ if (Meteor.isClient) {
         }
     });
     Router.route('/base/:_id', function() {
-        var item = Bases.findOne({id: this.params._id});
-        this.render('base', {data: item});
+        var item = Bases.findOne({_id: this.params._id});
+        console.log(item);
+        this.render('details', {data: item});
         
     });
     Router.route('/', function() {

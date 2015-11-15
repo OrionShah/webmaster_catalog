@@ -30,16 +30,46 @@
     </div>
 </template>
 
-<template name="filters">
+<template name="details">
+<div class="details">
+    <div class="name">{{name}}</div>
+     <div class="icons">
+        {{#if food}}<span class="glyphicon glyphicon-cutlery" aria-hidden="true"></span>{{/if}}
+        {{#if sport}}<span class="glyphicon glyphicon-tree-conifer" aria-hidden="true"></span>{{/if}}
+        {{#if indoor}}<span class="glyphicon glyphicon-home" aria-hidden="true"></span>{{/if}}
+        {{#if year}}<span class="glyphicon glyphicon-globe" aria-hidden="true"></span>{{/if}}
+        {{#if winter}}<span class="glyphicon glyphicon-tree-conifer" aria-hidden="true"></span>{{/if}}
+        {{#if spring}}<span class="glyphicon glyphicon-leaf" aria-hidden="true"></span>{{/if}}
+        {{#if summer}}<span class="glyphicon glyphicon-certificate" aria-hidden="true"></span>{{/if}}
+        {{#if autumn}}<span class="glyphicon glyphicon-tree-deciduous" aria-hidden="true"></span>{{/if}}
+        {{#if cars}}<span class="glyphicon glyphicon-road" aria-hidden="true"></span>{{/if}}
+        {{#if night}}<span class="glyphicon glyphicon-bed" aria-hidden="true"></span>{{/if}}
+    </div>
+    <div class="text">{{full_text}}</div>
+    <img src="/{{img}}" class="img">
     
+   
+</div>
 </template>
 
 <template name="base">
 <div class="base">
     <div class="name">{{name}}</div>
     <img class="img" src="{{img}}">
+    <div class="icons">
+        {{#if food}}<span class="glyphicon glyphicon-cutlery" aria-hidden="true"></span>{{/if}}
+        {{#if sport}}<span class="glyphicon glyphicon-tree-conifer" aria-hidden="true"></span>{{/if}}
+        {{#if indoor}}<span class="glyphicon glyphicon-home" aria-hidden="true"></span>{{/if}}
+        {{#if year}}<span class="glyphicon glyphicon-globe" aria-hidden="true"></span>{{/if}}
+        {{#if winter}}<span class="glyphicon glyphicon-tree-conifer" aria-hidden="true"></span>{{/if}}
+        {{#if spring}}<span class="glyphicon glyphicon-leaf" aria-hidden="true"></span>{{/if}}
+        {{#if summer}}<span class="glyphicon glyphicon-certificate" aria-hidden="true"></span>{{/if}}
+        {{#if autumn}}<span class="glyphicon glyphicon-tree-deciduous" aria-hidden="true"></span>{{/if}}
+        {{#if cars}}<span class="glyphicon glyphicon-road" aria-hidden="true"></span>{{/if}}
+        {{#if night}}<span class="glyphicon glyphicon-bed" aria-hidden="true"></span>{{/if}}
+    </div>
     <div class="adout">{{about}}</div>
-    <a class="link" href="/base/{{id}}">Подробнее</a>
+    <a class="link" href="/base/{{_id}}">Подробнее</a>
 </div>
 </template>
 

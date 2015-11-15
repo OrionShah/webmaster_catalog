@@ -78,20 +78,20 @@ body {
     overflow: auto;
     float: left;
     .base {
-        @width: 180px;
+        @width: 230px;
         border: 1px solid white;
-        width: @width;
+        // width: @width;
         padding: 10px;
         margin: 5px 10px;
         color: white;
         float: left;
         overflow: auto;
         .name {
-            text-decoration: underline;
-            font-size: 15pt;
+            // text-decoration: underline;
+            font-size: 17pt;
         }
         .img {
-            @img_size: @width - 10px;
+            @img_size: @width - 20px;
             @img_margin: (@width - @img_size) / 2;
             width: @img_size;
             height: @img_size;
@@ -144,5 +144,33 @@ body {
     input {
         display: inline-block;
         margin: 5px 0;
+    }
+}
+
+.details {
+    background-color: @green;
+    margin: 10px 0;
+    padding: 10px;
+    color: white;
+
+    .name {
+        font-size: 17pt;
+        text-decoration: underline;
+        margin: 10px 0;
+        paddning: 5px;   
+    }
+    .img {
+        @size: 300px;
+        position: relative;
+        top: -100px;
+        right: -840px;
+        width: @size;
+        height: @size;
+    }
+    .text {
+        width: 700px;
+        margin: 10px;
+        paddning: 5px;
+        font-size: 14pt;
     }
 }
