@@ -152,7 +152,7 @@ body {
     margin: 10px 0;
     padding: 10px;
     color: white;
-
+    overflow: auto;
     .name {
         font-size: 17pt;
         text-decoration: underline;
@@ -163,14 +163,27 @@ body {
         @size: 300px;
         position: relative;
         top: -100px;
-        right: -840px;
+        // right: -840px;
+        float: right;
         width: @size;
         height: @size;
+        display: block;
     }
     .text {
         width: 700px;
         margin: 10px;
         paddning: 5px;
         font-size: 14pt;
+    }
+    .info {
+        width: 300px;
+        float: right;
+        padding: 10px;
+        font-size: 12pt;
+        margin: 10px;
+        display: block;
+        span {
+            display: block;
+        }
     }
 }
